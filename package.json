@@ -4,7 +4,8 @@
   "description": "Full stack application for scraping supermarkets to get the cheapest items",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "(cd portal && npm install); (cd scraper && npm install); (cd database && npm install)"
   },
   "keywords": [],
   "author": "",
