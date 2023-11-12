@@ -1,18 +1,13 @@
 import { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
+import Item from '../../../models/item.model';
+import ItemRequest from '../../../models/itemRequest.interface';
 
-const getSearchUrl = (itemName) => `https://www.iceland.co.uk/search?q=${itemName}&lang=default`
+const getSearchUrl = (itemName: string) => `https://www.iceland.co.uk/search?q=${itemName}&lang=default`;
 
-interface Item {
-    price: string;
-    name: string;
-    image: string;
-};
-
-const getItemByItemName = async (req: Request, res: Response, next: NextFunction) => {
+const getItemByItemName = async (req: ItemRequest, res: Response, next: NextFunction) => {
     const items: Item[] = [];
-    console.log('Controller called');
     try {
         const { itemName } = req.query;
         const searchUrl = getSearchUrl(itemName);
@@ -28,11 +23,11 @@ const getItemByItemName = async (req: Request, res: Response, next: NextFunction
         $('.product-tile').each((index, element) => {
             const price = $(element).find('.price').text();
             const name = $(element).find('.product-name > a > span').text();
-            const image = '';
+            const imageSrc = '';
             items.push({
                 price,
                 name,
-                image,
+                imageSrc,
             });
         });
 
