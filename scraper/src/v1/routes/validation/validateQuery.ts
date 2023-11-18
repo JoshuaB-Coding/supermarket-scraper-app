@@ -1,3 +1,9 @@
+/**
+ * DEPRECATED
+ *
+ * Only here as a placeholder to demonstrate how tests work
+ */
+
 import { NextFunction, Request, Response } from "express";
 
 export default (queryName: String, opts?) => (req: Request, res: Response, next: NextFunction) => {

@@ -3,10 +3,18 @@ import axios from 'axios';
 import * as cheerio from 'cheerio';
 import Item from '../../models/item.model';
 import ItemRequest from '../../models/itemRequest.interface';
+import { validationResult } from 'express-validator';
 
 const getSearchUrl = (itemName: string) => `https://www.iceland.co.uk/search?q=${itemName}&lang=default`;
 
 const getItemByItemName = async (req: ItemRequest, res: Response, next: NextFunction) => {
+    const validationErrors = validationResult(req);
+    if (!validationErrors.isEmpty()) {
+        return res.status(422).send({
+            error: `Expected query 'itemName' but found no such query in the request`,
+        });
+    }
+
     const items: Item[] = [];
     try {
         const { itemName } = req.query;

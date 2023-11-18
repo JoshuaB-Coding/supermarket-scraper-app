@@ -7,6 +7,7 @@
     "start": "npm run build && nodemon dist/v1/index.js",
     "build": "tsc --build",
     "clean": "rm -rf dist",
+    "dev": "npx nodemon ./src/v1/index.ts",
     "test": "jest dist/**",
     "pretest": "npm run build",
     "posttest": "npm run clean"
