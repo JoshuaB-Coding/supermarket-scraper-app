@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  scraper:
+    build: ./scraper
+    image: josh-b-coding/scraper
+    ports:
+      - "5000:5000"
+
