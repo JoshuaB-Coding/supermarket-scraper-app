@@ -16,5 +16,4 @@ RUN npm run build
 
 EXPOSE 5000
 
-# RUN yarn && yarn add typescript tsc ts-node && yarn build
 CMD [ "node", "./dist/v1/index.js" ]
