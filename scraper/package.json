@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && nodemon dist/index.js",
+    "start": "npm run build && nodemon dist/v1/index.js",
     "build": "tsc --build",
     "clean": "rm -rf dist",
     "test": "jest dist/**",
@@ -16,9 +16,11 @@
   "license": "ISC",
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/express-validator": "^3.0.0",
     "axios": "^1.6.1",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.18.2",
+    "express-validator": "^7.0.1",
     "nodemon": "^3.0.1",
     "typescript": "^5.2.2"
   },

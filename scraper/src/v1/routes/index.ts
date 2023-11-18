@@ -1,9 +1,8 @@
 import * as express from 'express';
-import validation from './validation';
-import iceland from './controllers/iceland.controller';
+import icelandRoutes from './iceland.route';
 
 const router = express.Router();
 
-router.get('/iceland/item', validation.validateQuery('itemName'), iceland.getItemByItemName);
+router.use('/iceland/', icelandRoutes);
 
 export default router;

@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from 'express';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
-import Item from '../../../models/item.model';
-import ItemRequest from '../../../models/itemRequest.interface';
+import Item from '../../models/item.model';
+import ItemRequest from '../../models/itemRequest.interface';
 
 const getSearchUrl = (itemName: string) => `https://www.iceland.co.uk/search?q=${itemName}&lang=default`;
 
