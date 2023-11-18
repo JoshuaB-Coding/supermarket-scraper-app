@@ -4,6 +4,8 @@ import routes from './routes';
 const app = express();
 const port = process.env.PORTAL_PORT || 5000;
 
+app.use(express.json());
+
 app.get('/', (req, res) => {
     res.send('Hello World');
 });
