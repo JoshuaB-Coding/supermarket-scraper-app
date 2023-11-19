@@ -2,7 +2,14 @@ version: "3.8"
 services:
   scraper:
     build: ./scraper
+    command: node ./dist/v1/index.js
     image: josh-b-coding/scraper
     ports:
       - "5000:5000"
 
+  portal:
+    build: ./price-comparison-portal
+    command: npm run dev
+    image: josh-b-coding/price-comparison-portal
+    ports:
+      - "3000:3000"

@@ -12,6 +12,4 @@ RUN npm ci
 
 COPY --chown=node:node . .
 
-RUN npm run build
-
-EXPOSE 5000
+EXPOSE 3000
