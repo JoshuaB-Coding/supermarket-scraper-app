@@ -1,8 +1,12 @@
 # SECRETS
-*.env
+.env
 
 # NODE MODULES
 node_modules
 
 # BUILD FILES
 dist
+
+# REST CLIENT FILES
+*.rest
+*.http
