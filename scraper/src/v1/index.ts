@@ -1,9 +1,9 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
+dotenv.config();
+
 import { openRouter, protectedRouter } from './routes';
 import { authenticateKey } from './middleware';
-
-dotenv.config();
 
 const app = express();
 const port = process.env.SCRAPER_PORT || 5000;
