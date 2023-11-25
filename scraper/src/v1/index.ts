@@ -1,6 +1,6 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
-import routes from './routes';
+import { openRouter, protectedRouter } from './routes';
 import { authenticateKey } from './middleware';
 
 dotenv.config();
@@ -14,15 +14,12 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(authenticateKey);
-
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
+app.use('/', openRouter);
 
-app.use('/v1/', routes);
+app.use(authenticateKey);
+app.use('/v1/', protectedRouter);
 
 app.listen(port, () => {
     console.log(`Scraper app listening on port ${port}`);

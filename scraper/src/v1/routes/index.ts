@@ -1,8 +1,17 @@
 import * as express from 'express';
 import icelandRoutes from './iceland.route';
 
-const router = express.Router();
+const openRouter = express.Router();
 
-router.use('/iceland/', icelandRoutes);
+openRouter.get('/', (req, res) => {
+    res.status(200).send('Hello world!');
+});
 
-export default router;
+const protectedRouter = express.Router();
+
+protectedRouter.use('/iceland/', icelandRoutes);
+
+export {
+    openRouter,
+    protectedRouter,
+};
