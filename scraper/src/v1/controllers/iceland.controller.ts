@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+import { Response } from 'express';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import Item from '../../models/item.model';
@@ -7,7 +7,7 @@ import { validationResult } from 'express-validator';
 
 const getSearchUrl = (itemName: string) => `https://www.iceland.co.uk/search?q=${itemName}&lang=default`;
 
-const getItemByItemName = async (req: ItemRequest, res: Response, next: NextFunction) => {
+export const getItemByItemName = async (req: ItemRequest, res: Response) => {
     const validationErrors = validationResult(req);
     if (!validationErrors.isEmpty()) {
         return res.status(422).send({
@@ -44,8 +44,4 @@ const getItemByItemName = async (req: ItemRequest, res: Response, next: NextFunc
         console.error('Error getting items from iceland: ', error);
         return res.status(500).send({ error: 'Failed to get items from iceland' });
     }
-};
-
-export default {
-    getItemByItemName,
 };
